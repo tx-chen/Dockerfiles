@@ -11,4 +11,5 @@ RUN set -ex \
     && sed 's;http.*//.*debian.org;https://mirrors.cloud.tencent.com;g' -i /etc/apt/sources.list \
     && echo '[global]\nindex-url=https://mirrors.cloud.tencent.com/pypi/simple/\ntrusted-host=mirrors.cloud.tencent.com' > /etc/pip.conf \
     && ln -sf /usr/share/zoneinfo/$TZ /etc/localtime \
+    && apt-get update && apt-get install -y net-tools telnet nmap iperf3 \
     && rm -rf /var/cache/apt/* /root/.cache/pip/*
